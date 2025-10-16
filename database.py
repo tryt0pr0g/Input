@@ -9,7 +9,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # 'postgresql://postgres:root@localhost:5432/KeyboardMaster'
 
 
-DATABASE_URL = os.getenv("postgresql://fastapi_db_po12_user:jco7AciWRN7Zn53oGS51itXuEtH5NlLT@dpg-d3o4oeur433s739pp44g-a/fastapi_db_po12")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
 #engine = create_engine(SQLALCHEMY_DATABASE_URL)
