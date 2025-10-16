@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/game.css">
+{% endblock %}
+
+{% block title %}
+Играть
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2">Главная</a></li>
+<li><a href="game" class="nav-link px-2 link-secondary">Играть</a></li>
+<li><a id="add-text-link" href="addText" class="nav-link px-2 hidden-field">Добавить текст</a></li>
+<li><a id="adminLink" href="adminPanel" class="nav-link px-2 hidden-field">Модерация</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="d-flex align-items-center me-2">
+    <a id="authBtn" href="authorization" class="btn btn-outline-primary me-2">Войти</a>
+    <a id="regBtn" href="registration" class="btn btn-outline-primary">Регистрация</a>
+</div>
+<div>
+    <button id="logOutBtn" type="button" class="btn btn-outline-primary">
+        Выход
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="game-controls">
+    <button id="getText" type="submit" class="btn btn-outline-primary">
+        Начать
+    </button>
+    <div id="timer">00:00</div>
+</div>
+<div id="corrTextArea">При нажатии на кнопку "Начать" будет добавлен текст для записи.</div>
+<br>
+<div id="checkTextArea" contenteditable="false" class="input-area" spellcheck="false"></div>
+<br>
+<div id="noToken" class="error-message hidden-field">Неверный пароль</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/game.js" defer></script>
+{% endblock %}

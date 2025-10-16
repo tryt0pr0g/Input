@@ -1,0 +1,50 @@
+#form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reg-form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reg-form input,
+.reg-form button {
+    display: block;
+    margin: clamp(0.4rem, 1vh, 1rem) 0;
+    padding: clamp(0.6rem, 1vh, 1.2rem);
+    width: 100%;
+    font-size: clamp(1rem, 1vw + 0.2rem, 1.5rem);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.3rem, 1vw, 1rem);
+    font-size: clamp(1rem, 1vw + 0.2rem, 1.5rem);
+    margin: clamp(0.5rem, 1vh, 1rem) 0;
+    width: 100%;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: clamp(1rem, 2vw, 1.5rem);
+    height: clamp(1rem, 2vw, 1.5rem);
+}
+
+.checkbox-group label {
+    white-space: nowrap; /* 👈 не переносит текст */
+}
+
+.error-message {
+    color: red;
+    font-size: clamp(0.8rem, 0.8vw + 0.2rem, 1.2rem);
+    margin-bottom: clamp(0.5rem, 1vh, 1rem);
+    height: 1rem;
+    text-align: center;
+}

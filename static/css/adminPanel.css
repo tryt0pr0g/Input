@@ -1,0 +1,58 @@
+#moderation-div, #ban-user {
+    display: flex;
+    gap: 4rem;
+    margin: 10px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#request-div {
+    padding: 10px;
+}
+
+#user-text {
+    width: 100%; /* clamp(300px, 50%, 700px); */
+    min-height: 120px;
+    border: 2px solid black;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    font-size: clamp(0.9rem, 1vw + 0.2rem, 1.2rem);
+    padding: clamp(0.5rem, 1vw, 1rem);
+    white-space: pre-wrap;
+    outline: none;
+    color: black;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.input-area {
+    width: clamp(300px, 50%, 700px);
+    min-height: 120px;
+    min-width: 350px;
+    border: 2px solid black;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    font-size: clamp(0.9rem, 1vw + 0.2rem, 1.2rem);
+    padding: clamp(0.5rem, 1vw, 1rem);
+    white-space: pre-wrap;
+    outline: none;
+    color: black;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: clamp(1rem, 1vw + 0.3rem, 1.25rem);
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem; /* Adjust this value for more or less space */
+    margin-top: 1rem; /* Add some space above the buttons if needed */
+    justify-content: center; /* Center the buttons if desired */
+}

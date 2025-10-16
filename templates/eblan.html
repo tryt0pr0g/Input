@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block title %}
+Страница не найдена
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2">Главная</a></li>
+<li><a href="game" class="nav-link px-2">Играть</a></li>
+<li><a id="add-text-link" href="addText" class="nav-link px-2 hidden-field">Добавить текст</a></li>
+<li><a id="adminLink" href="adminPanel" class="nav-link px-2 hidden-field">Модерация</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="d-flex align-items-center me-2">
+    <a id="authBtn" href="authorization" class="btn btn-outline-primary me-2">Войти</a>
+    <a id="regBtn" href="registration" class="btn btn-outline-primary">Регистрация</a>
+</div>
+<div>
+    <button id="logOutBtn" type="button" class="btn btn-outline-primary">
+        Выход
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+<h3>Такой страницы не существует. Вернитесь пожалуйста на главную</h3>
+<a href="/" type="button" class="btn btn-outline-primary">Вернуться</a>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

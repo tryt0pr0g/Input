@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
+
+{% block title %}
+КлавоМастер
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
+<li><a href="game" class="nav-link px-2">Играть</a></li>
+<li><a id="add-text-link" href="addText" class="nav-link px-2 hidden-field">Добавить текст</a></li>
+<li><a id="adminLink" href="adminPanel" class="nav-link px-2 hidden-field">Модерация</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="d-flex align-items-center me-2">
+    <a id="authBtn" href="authorization" class="btn btn-outline-primary me-2">Войти</a>
+    <a id="regBtn" href="registration" class="btn btn-outline-primary">Регистрация</a>
+</div>
+<div>
+    <button id="logOutBtn" type="button" class="btn btn-outline-primary">
+        Выход
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+<h1>КлавоМастер</h1>
+<p>
+    Добро пожаловать на <b>КлавоМастер</b> — онлайн-платформу, где скорость и точность печати превращаются в настоящее приключение.
+</p>
+<p>
+    Здесь ты сможешь проверить свои навыки набора текста, соревнуясь с собой и другими игроками за лучший результат.
+</p>
+<p>
+    Твоя задача — переписывать предложенные тексты как можно быстрее и с минимальным количеством ошибок. За каждый успешно пройденный уровень ты будешь получать очки, продвигаться вперёд и открывать новые, более сложные задания.
+</p>
+<p>
+    Это не просто тренажёр, а полноценная игра, в которой ты развиваешь свою внимательность, концентрацию и печатную реакцию. Подходит как для начинающих, желающих улучшить навыки, так и для опытных пользователей, готовых к настоящему вызову.
+</p>
+<p>
+    Начни свой путь уже сейчас — и докажи, что ты настоящий мастер клавиатуры!
+</p>
+<a href="game" type="button" class="btn btn-outline-primary">Попробовать</a>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

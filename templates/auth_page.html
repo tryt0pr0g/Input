@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/regAndAuth.css">
+{% endblock %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2">Главная</a></li>
+<li><a href="game" class="nav-link px-2">Играть</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="col-md-3 text-end">
+    <a href="authorization" type="button" class="btn btn-primary">Войти</a>
+    <a href="registration" type="button" class="btn btn-outline-primary me-2">Регистрация</a>
+</div>
+{% endblock %}
+
+{% block body %}
+<div id="form">
+    <form id="authForm" class="reg-form">
+        <input type="text" name="login" placeholder="Введите Логин" required>
+        <input type="password" name="password" placeholder="Введите пароль" required><br>
+        <div id="password-error" class="error-message hidden-field">Неверный пароль</div>
+        <div class="checkbox-group">
+            <input id="rememberMe" type="checkbox" name="rememberMe">
+            <label for="rememberMe">Запомнить меня</label>
+        </div>
+        <button id="authUser" class="btn btn-outline-primary me-2" type="button">Войти</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/authScripts.js?" defer></script>
+{% endblock %}

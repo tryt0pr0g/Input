@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/adminPanel.css">
+{% endblock %}
+
+{% block title %}
+Модерация
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2">Главная</a></li>
+<li><a href="game" class="nav-link px-2">Играть</a></li>
+<li><a id="add-text-link" href="addText" class="nav-link px-2 hidden-field">Добавить текст</a></li>
+<li><a id="adminLink" href="adminPanel" class="nav-link px-2 hidden-field link-secondary">Модерация</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="d-flex align-items-center me-2">
+    <a id="authBtn" href="authorization" class="btn btn-outline-primary me-2">Войти</a>
+    <a id="regBtn" href="registration" class="btn btn-outline-primary">Регистрация</a>
+</div>
+<div>
+    <button id="logOutBtn" type="button" class="btn btn-outline-primary">
+        Выход
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+<div>
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><button id="request-btn" class="nav-link px-2">Заявки</button></li>
+        <li><button id="moderation-btn" class="nav-link px-2 link-secondary">Модерация</button></li>
+    </ul>
+</div>
+<div id="request-div" class="hidden-field">
+    <div id="no-zero-requests-div">
+        <div id="ban-user">
+            <p>Логин пользователя:
+                <b id="user-login"></b>
+            </p>
+            <button id="block-user-r" class="btn btn-outline-primary">Заблокировать</button>
+        </div>
+        <br>
+        <div id="user-text" contenteditable="false" class="input-area" spellcheck="false"></div>
+        <div class="action-buttons">
+            <button id="accept-user-text" class="btn btn-outline-primary">Одобрить</button>
+            <button id="reject-user-text" class="btn btn-outline-primary">Отклонить</button>
+        </div>
+    </div>
+    <div id="zero-requests-div" class="hidden-field">
+        <p>Больше не осталось заявок для рассмотрения</p>
+    </div>
+</div>
+<div id="moderation-div">
+    <form id="block-user-area">
+            <h3>Блокировка пользователя</h3>
+            <label for="block-user">Введите логин</label>
+            <div id="block-user" contenteditable="true" class="input-area" spellcheck="false"></div>
+            <br>
+            <button id="block-user-m" class="btn btn-outline-primary">Заблокировать</button>
+    </form>
+    <form id="delete-text-area">
+        <h3>Удаление текста</h3>
+        <label for="delete-text-div">Введите текст</label>
+        <div id="delete-text-div" contenteditable="true" class="input-area" spellcheck="false"></div>
+        <br>
+        <button id="delete-text-btn" class="btn btn-outline-primary">Удалить</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/adminPanel.js" defer></script>
+{% endblock %}

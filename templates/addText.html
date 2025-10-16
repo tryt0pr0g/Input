@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/addText.css">
+{% endblock %}
+
+{% block title %}
+Добавление текста
+{% endblock %}
+
+{% block header_links %}
+<li><a href="/" class="nav-link px-2">Главная</a></li>
+<li><a href="game" class="nav-link px-2">Играть</a></li>
+<li><a id="add-text-link" href="addText" class="nav-link px-2 hidden-field link-secondary">Добавить текст</a></li>
+<li><a id="adminLink" href="adminPanel" class="nav-link px-2 hidden-field">Модерация</a></li>
+{% endblock %}
+
+{% block header_buttons %}
+<div id="regAuthDiv" class="d-flex align-items-center me-2">
+    <a id="authBtn" href="authorization" class="btn btn-outline-primary me-2">Войти</a>
+    <a id="regBtn" href="registration" class="btn btn-outline-primary">Регистрация</a>
+</div>
+<div>
+    <button id="logOutBtn" type="button" class="btn btn-outline-primary">
+        Выход
+    </button>
+</div>
+{% endblock %}
+
+{% block body %}
+<ul id="rules">
+    <li id="onlyRusSymbols">Текст может состоять только из русских букв и цифр и допустимых знаков пунктуации <b id="sentsSymbols">.,:;!?-«»'"()</b></li>
+    <li id="sentsLength">Минимальная длина текста - 15 символов</li>
+</ul>
+<div id="newText" contenteditable="true" class="input-area"></div>
+<div id="postError" class="error-message hidden-field"></div>
+<br>
+<button id="postNewText" class="btn btn-outline-primary me-2">Добавить текст</button>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/static/js/addText.js" defer></script>
+{% endblock %}
