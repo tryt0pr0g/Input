@@ -8,7 +8,7 @@ from dependencies import db_dependency
 
 from DBModels.model import User, Text
 
-from Schemes.user import SchemeTextSend, SchemeUser
+from Schemes.user import SchemeTextSend, SchemeUser, SchemeAuthUser
 
 from secrets import token_urlsafe
 
@@ -17,21 +17,29 @@ user_router = APIRouter()
 templates = Jinja2Templates(directory='templates')
 
 
-@user_router.post(path='/authUser',
-                  response_class=JSONResponse,
-                  tags=["user", "admin"],
-                  summary="Авторизация пользователя")
-async def auth_user(user: SchemeUser, db : db_dependency) -> JSONResponse:
-
-    if db.execute(select(User).where(User.login == user.login)).first() is None:
+@user_router.post(
+    path='/authUser',
+    response_class=JSONResponse,
+    tags=["user", "admin"],
+    summary="Авторизация пользователя"
+)
+async def auth_user(user: SchemeAuthUser, db: db_dependency) -> JSONResponse:
+    # Проверяем логин
+    db_user = db.execute(select(User).where(User.login == user.login)).scalar_one_or_none()
+    if db_user is None:
         return JSONResponse(content={"error": "Неверный логин"}, status_code=404)
 
-    user_token = token_urlsafe(32)
-    db.execute(update(User).where(and_(User.login == user.login, User.password == user.password)).values(user_token=user_token))
+    # Проверяем пароль
+    if db_user.password != user.password:
+        return JSONResponse(content={"error": "Неверный пароль"}, status_code=401)
 
+    # Генерируем токен
+    user_token = token_urlsafe(32)
+    db_user.user_token = user_token
     db.commit()
 
     return JSONResponse(content={"user_token": user_token}, status_code=201)
+
 
 
 @user_router.get(path='/get_random_text',
@@ -49,7 +57,7 @@ async def get_rand_text(db: db_dependency) -> JSONResponse:
                   response_class=JSONResponse,
                   tags=["user", "admin"],
                   summary="Регистрация пользователя")
-async def reg_user(user: SchemeUser, db : db_dependency) -> JSONResponse:
+async def reg_user(user: SchemeAuthUser, db : db_dependency) -> JSONResponse:
     all_logins = db.execute(select(User.login)).scalars().all()
 
     if user.login not in all_logins:
